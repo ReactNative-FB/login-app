@@ -1,20 +1,26 @@
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
+import { isLogin } from "./src/util/auth";
 
 // SCREEN
 import Login from './src/screens/Login';
 import Home from './src/screens/Home';
 import Details from './src/screens/Details';
 
-// UTIL
-import getToken from './src/util/getToken';
-
 const Stack = createStackNavigator();
 
 function App() {
 
-    let isSignedIn = getToken()
+    const [isSignedIn, setIsSignedIn] = React.useState(false);
+
+    React.useEffect(() => {
+        isLogin().then(res=>{
+            setIsSignedIn(true)
+        }).catch(e=>{
+            console.log(e)
+        })
+    });
 
     return (
         <NavigationContainer>

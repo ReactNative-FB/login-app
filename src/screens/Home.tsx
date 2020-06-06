@@ -1,5 +1,6 @@
 import React from 'react';
 import {Button, StyleSheet, Text, View} from 'react-native';
+import { logout } from "../util/auth";
 
 function Home({navigation}: any) {
     return (
@@ -13,6 +14,13 @@ function Home({navigation}: any) {
                         itemId: 86,
                         otherParam: 'anything you want here',
                     });
+                }}
+            />
+
+            <Button
+                title="Logout"
+                onPress={() => {
+                   logout();
                 }}
             />
         </View>

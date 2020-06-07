@@ -1,17 +1,10 @@
 import React, {useState} from 'react'
-import { AsyncStorage } from "react-native";
-import {
-    StyleSheet,
-    ScrollView,
-    Text,
-    TextInput,
-    View
-} from 'react-native';
-import {Input, Button} from 'react-native-elements';
+import {ScrollView, StyleSheet} from 'react-native';
+import {Button, Input} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { login } from "../util/auth";
+import {login} from "../util/auth";
 
-export default function Login({navigation}: any) {
+export default function Login() {
 
     const [uname, setUsername] = useState('');
     const [upass, setPassword] = useState('');
